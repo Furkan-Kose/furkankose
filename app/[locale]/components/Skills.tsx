@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { useRef } from "react";
 
 const skills = [
   { name: "HTML", logo: "https://img.icons8.com/?size=100&id=20909&format=png&color=000000" },
@@ -25,6 +26,9 @@ const skills = [
 const Skills = () => {
   const t = useTranslations("Skills");
 
+  const ref = useRef(null);
+  const inView = useInView(ref, {once: true});
+
   return (
     <section
       id="skills"
@@ -33,9 +37,10 @@ const Skills = () => {
       {/* Başlık */}
       <div className="text-center mb-8">
         <motion.h2
+          ref={ref}
           className="text-5xl font-bold text-black dark:text-white tracking-tighter"
           initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
           transition={{ duration: 1 }}
         >
           {t("title")}
@@ -43,7 +48,7 @@ const Skills = () => {
         <motion.p
           className="text-gray-800 dark:text-gray-400 text-lg mt-4"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
           {t("description")}
@@ -51,13 +56,13 @@ const Skills = () => {
       </div>
 
       {/* Yetenekler İçin Kartlar */}
-      <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-4 p-8 rounded-lg">
+      <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-4 md:gap-8 p-2 md:p-8 rounded-lg">
         {skills.map((skill, index) => (
           <motion.div
             key={index}
             className="flex flex-col items-center justify-center gap-2"
             initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ delay: index * 0.1 }}
           >
             <div

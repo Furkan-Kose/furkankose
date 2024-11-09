@@ -1,19 +1,20 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { useRef } from "react";
 
 const projects = [
-  {
-    title: "Ritmika Cimnastik",
-    image: "ritmikacimnastik.png",
-    link: "https://ritmikacimnastik.com.tr",
-  },
   {
     title: "Range Media",
     image: "rangemedia.png",
     link: "https://rangemedia.com.tr",
+  },
+  {
+    title: "Ritmika Cimnastik",
+    image: "ritmikacimnastik.png",
+    link: "https://ritmikacimnastik.com.tr",
   },
   {
     title: "Furkan Köse",
@@ -30,14 +31,18 @@ const projects = [
 const Projects = () => {
   const t = useTranslations("Projects");
 
+  const ref = useRef(null);
+  const inView = useInView(ref, {once: true});
+
   return (
     <section id="projects" className="relative flex flex-col items-center justify-center pt-32 pb-16 bg-gradient-to-b from-gray-100 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-24 ">
       <div className="absolute inset-0 h-20 bg-gray-50 dark:bg-gray-950 clip-path-triangle"></div>
       <div className="text-center mb-12 w-full">
         <motion.h2
+          ref={ref}
           className="text-5xl font-extrabold text-black dark:text-white tracking-tight"
           initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
           transition={{ duration: 1 }}
         >
           {t("title")}
@@ -45,7 +50,7 @@ const Projects = () => {
         <motion.p
           className="text-gray-800 dark:text-gray-400 text-lg mt-4"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
           {t("description")}
@@ -58,7 +63,7 @@ const Projects = () => {
             key={index}
             className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 group hover:scale-105"
             initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ delay: index * 0.1 }}
           >
             {/* Görsel veya Placeholder */}
