@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.clip-path-triangle {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 50%);
+}
+
+.clip-path-triangle-reverse {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 100%);
+}
+
+  

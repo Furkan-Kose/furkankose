@@ -1,0 +1,46 @@
+{
+  "Hero": {
+    "greeting": "I'm Furkan Köse",
+    "role": "A Full Stack Developer",
+    "passion": "Passionate About Creating Experiences",
+    "technology": "Building with Next.js, Tailwind CSS, and More",
+    "description": "I transform ideas into reality through creativity and code.",
+    "projects": "Projects",
+    "downloadCV": "Download CV",
+    "contact": "Contact"
+  },
+  "Navbar": {
+    "home": "Home",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "Skills": {
+    "title": "My Skills",
+    "description": "Skills I possess and continuously improve.",
+    "programmingLanguages": "Programming Languages",
+    "technologies": "Technologies"
+  },
+  "Projects": {
+    "title": "My Projects",
+    "description": "Projects I've worked on and continue to develop.",
+    "viewLive": "View Live"
+  },
+  "Contact": {
+    "title": "Contact",
+    "description": "Reach out for inquiries or collaboration opportunities.",
+    "followMe": "Follow Me",
+    "followMeDescription": "Feel free to get in touch if you have any questions or collaboration opportunities! I’d be happy to assist.",
+    "sendMessage": "Send a Message",
+    "namePlaceholder": "Your Name",
+    "emailPlaceholder": "Email",
+    "messagePlaceholder": "Your Message",
+    "sendButton": "Send"
+  },
+  "Footer": {
+    "name": "Furkan Köse",
+    "email": "Email:",
+    "phone": "Phone:",
+    "rights": "All Rights Reserved."
+  }
+}

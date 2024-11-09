@@ -1,0 +1,46 @@
+{
+  "Hero": {
+    "greeting": "Ben Furkan Köse",
+    "role": "Bir Full Stack Geliştirici",
+    "passion": "Deneyimler Oluşturmaya Tutkuluyum",
+    "technology": "Next.js, Tailwind CSS ve Daha Fazlasıyla Geliştiriyorum.",
+    "description": "Fikirleri yaratıcılık ve kod ile gerçeğe dönüştürüyorum.",
+    "projects": "Projeler",
+    "downloadCV": "CV İndir",
+    "contact": "İletişim"
+  },
+  "Navbar": {
+    "home": "Anasayfa",
+    "skills": "Yetenekler",
+    "projects": "Projeler",
+    "contact": "İletişim"
+  },
+  "Skills": {
+    "title": "Yeteneklerim",
+    "description": "Sahip olduğum ve sürekli geliştirdiğim becerilerim.",
+    "programmingLanguages": "Programlama Dilleri",
+    "technologies": "Teknolojiler"
+  },
+  "Projects": {
+    "title": "Projelerim",
+    "description": "Üzerinde çalıştığım ve geliştirdiğim projelerim.",
+    "viewLive": "Canlı Gör"
+  },
+  "Contact": {
+    "title": "İletişim",
+    "description": "Sorularınız veya işbirliği talepleriniz için benimle iletişime geçin.",
+    "followMe": "Beni Takip Edin",
+    "followMeDescription": "Herhangi bir sorunuz veya iş birliği fırsatınız varsa, benimle iletişime geçmekten çekinmeyin! Size yardımcı olmaktan mutluluk duyarım.",
+    "sendMessage": "Mesaj Gönderin",
+    "namePlaceholder": "Adınız",
+    "emailPlaceholder": "E-posta",
+    "messagePlaceholder": "Mesajınız",
+    "sendButton": "Gönder"
+  },
+  "Footer": {
+    "name": "Furkan Köse",
+    "email": "Email:",
+    "phone": "Telefon:",
+    "rights": "Tüm Hakları Saklıdır."
+  }
+}
