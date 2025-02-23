@@ -21,11 +21,6 @@ const projects = [
     image: "furkankose.png",
     link: "https://furkankose.vercel.app",
   },
-  // {
-  //   title: "Depon",
-  //   image: "",
-  //   link: "#",
-  // },
 ];
 
 const Projects = () => {
@@ -35,7 +30,7 @@ const Projects = () => {
   const inView = useInView(ref, {once: true});
 
   return (
-    <section id="projects" className="relative flex flex-col items-center justify-center pt-32 pb-16 bg-gradient-to-b from-gray-100 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-24 ">
+    <section id="projects" className="relative flex flex-col items-center justify-center pt-32 pb-16 bg-gray-200 dark:bg-gray-900 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-24 ">
       <div className="absolute inset-0 h-20 bg-gray-50 dark:bg-gray-950 clip-path-triangle"></div>
       <div className="text-center mb-12 w-full">
         <motion.h2
@@ -65,7 +60,7 @@ const Projects = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ delay: index * 0.1 }}
-          >
+          > 
             {/* Görsel veya Placeholder */}
             <div className="relative w-full h-56 bg-gray-200 dark:bg-gray-700 flex items-center justify-center rounded-t-2xl overflow-hidden group-hover:opacity-80 transition duration-500">
               {project.image ? (
@@ -77,12 +72,12 @@ const Projects = () => {
             </div>
 
             {/* Proje Başlık ve Link */}
-            <div className="p-6 bg-white dark:bg-gray-900 rounded-b-2xl group-hover:bg-gray-100 dark:group-hover:bg-gray-700 transition-all duration-300">
+            <div className="p-6 bg-white dark:bg-gray-950 rounded-b-2xl group-hover:bg-gray-100 dark:group-hover:bg-gray-700 transition-all duration-300">
               <h3 className="text-xl font-semibold text-black dark:text-white mb-4">{project.title}</h3>
               <Link
                 href={project.link}
                 target="_blank"
-                className="inline-block px-6 py-2 bg-blue-600 text-white font-semibold text-sm rounded-full hover:bg-blue-700 transition duration-300"
+                className="inline-block px-6 py-2 bg-blue-500 text-white font-semibold text-sm rounded-full hover:bg-blue-700 transition duration-300"
               >
                 {t("viewLive")}
               </Link>

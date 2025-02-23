@@ -82,6 +82,9 @@ export default function Navbar() {
         <Link href="#projects" className="text-gray-900 dark:text-gray-300 hover:text-blue-500 transition-colors duration-300">
           {t("projects")}
         </Link>
+        <Link href="#services" className="text-gray-900 dark:text-gray-300 hover:text-blue-500 transition-colors duration-300">
+          {t("services")}
+        </Link>
         <Link href="#contact" className="text-gray-900 dark:text-gray-300 hover:text-blue-500 transition-colors duration-300">
           {t("contact")}
         </Link>
@@ -165,6 +168,13 @@ export default function Navbar() {
             onClick={() => setIsOpen(false)}
           >
             {t("projects")}
+          </Link>
+          <Link
+            href="#services"
+            className="text-black dark:text-white text-2xl hover:text-blue-400 transition-colors duration-200"
+            onClick={() => setIsOpen(false)}
+          >
+            {t("services")}
           </Link>
           <Link
             href="#contact"

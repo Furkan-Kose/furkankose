@@ -13,6 +13,7 @@
     "home": "Anasayfa",
     "skills": "Yetenekler",
     "projects": "Projeler",
+    "services": "Hizmetler",
     "contact": "İletişim"
   },
   "Skills": {
@@ -25,6 +26,32 @@
     "title": "Projelerim",
     "description": "Üzerinde çalıştığım ve geliştirdiğim projelerim.",
     "viewLive": "Canlı Gör"
+  },
+  "Services": {
+    "title": "Hizmetlerim",
+    "description": "Müşterilerime sunduğum hizmetler.",
+    "list": [
+      {
+        "title": "Web Geliştirme",
+        "description": "Gelişmiş ve kullanıcı dostu web siteleri tasarlayıp geliştiriyorum.",
+        "icon": "https://img.icons8.com/?size=100&id=1349&format=png&color=000000"
+      },
+      {
+        "title": "Mobil Uygulama Geliştirme",
+        "description": "Kullanıcı deneyimini ön planda tutarak mobil uygulamalar geliştiriyorum.",
+        "icon": "https://img.icons8.com/?size=100&id=pthEjNCmyg61&format=png&color=000000"
+      },
+      {
+        "title": "Yazılım Geliştirme",
+        "description": "İhtiyaçlarınıza özel yazılım çözümleri sunarak projelerinizi hayata geçiriyorum.",
+        "icon": "https://img.icons8.com/?size=100&id=T2hlOs3PLcaY&format=png&color=000000"
+      },
+      {
+        "title": "Yapay Zeka",
+        "description": "Veri analizi ve makine öğrenimi ile projelerinizi daha akıllı hale getiriyorum.",
+        "icon": "https://img.icons8.com/?size=100&id=61864&format=png&color=000000"
+      }
+    ]
   },
   "Contact": {
     "title": "İletişim",

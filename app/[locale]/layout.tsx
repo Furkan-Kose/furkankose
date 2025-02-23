@@ -53,7 +53,6 @@ export default async function LocaleLayout({
             <Navbar />
             {children}
             <Footer />
-            {/* <Night /> */}
           </div>
         </NextIntlClientProvider>
 

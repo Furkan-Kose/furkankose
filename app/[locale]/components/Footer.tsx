@@ -8,7 +8,7 @@ const Footer = () => {
   const t = useTranslations("Footer");
 
   return (
-    <footer className="text-black dark:text-white py-10 bg-gray-200 dark:bg-gray-800 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-24">
+    <footer className="text-black dark:text-white py-10 bg-gray-100 dark:bg-gray-800 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-24">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
         {/* İletişim Bilgileri */}
         <div className="mb-6 md:mb-0 text-center md:text-left">

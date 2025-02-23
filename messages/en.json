@@ -13,6 +13,7 @@
     "home": "Home",
     "skills": "Skills",
     "projects": "Projects",
+    "services": "Services",
     "contact": "Contact"
   },
   "Skills": {
@@ -25,6 +26,32 @@
     "title": "My Projects",
     "description": "Projects I've worked on and continue to develop.",
     "viewLive": "View Live"
+  },
+  "Services": {
+    "title": "My Services",
+    "description": "Services I provide to my clients.",
+    "list": [
+      {
+        "title": "Web Development",
+        "description": "Designing and developing advanced and user-friendly websites.",
+        "icon": "https://img.icons8.com/?size=100&id=1349&format=png&color=000000"
+      },
+      {
+        "title": "Mobile App Development",
+        "description": "Developing mobile applications with user experience in mind.",
+        "icon": "https://img.icons8.com/?size=100&id=pthEjNCmyg61&format=png&color=000000"
+      },
+      {
+        "title": "Software Development",
+        "description": "Providing software solutions tailored to your needs.",
+        "icon": "https://img.icons8.com/?size=100&id=T2hlOs3PLcaY&format=png&color=000000"
+      },
+      {
+        "title": "Artificial Intelligence",
+        "description": "Making your projects smarter with data analysis and machine learning.",
+        "icon": "https://img.icons8.com/?size=100&id=61864&format=png&color=000000"
+      }
+    ]
   },
   "Contact": {
     "title": "Contact",

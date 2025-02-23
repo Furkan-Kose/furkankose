@@ -14,7 +14,7 @@ const skills = [
   { name: "Next.js", logo: "https://img.icons8.com/?size=100&id=MWiBjkuHeMVq&format=png&color=000000" },
   { name: "Node.js", logo: "https://img.icons8.com/?size=100&id=54087&format=png&color=000000" },
   { name: "MongoDB", logo: "https://img.icons8.com/?size=100&id=74402&format=png&color=000000" },
-  { name: "Flutter", logo: "https://img.icons8.com/?size=100&id=7I3BjCqe9rjG&format=png&color=000000" },
+  { name: "React Native", logo: "https://img.icons8.com/?size=100&id=123603&format=png&color=000000" },
   { name: "C#", logo: "https://img.icons8.com/?size=100&id=55251&format=png&color=000000" },
   { name: ".NET Core", logo: "https://img.icons8.com/?size=100&id=1BC75jFEBED6&format=png&color=000000" },
   { name: "MS SQL", logo: "https://img.icons8.com/?size=100&id=laYYF3dV0Iew&format=png&color=000000" },
@@ -32,7 +32,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="flex flex-col items-center justify-center relative pt-32 pb-16 overflow-hidden bg-gradient-to-b from-white via-white to-gray-50 dark:from-black dark:via-black dark:to-gray-950 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-24"
+      className="flex flex-col items-center justify-center relative pt-32 pb-16 overflow-hidden bg-gradient-to-b from-white via-white bg-gray-50 dark:from-black dark:via-black dark:to-gray-950 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-24"
     >
       {/* Başlık */}
       <div className="text-center mb-8">
