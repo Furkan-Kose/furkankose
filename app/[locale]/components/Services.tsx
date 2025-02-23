@@ -72,8 +72,8 @@ const Services = () => {
             transition={{ delay: index * 0.2 }}
           >
             {/* İkonun arka planı için kapsayıcı div */}
-            <div className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-gray-100 rounded-full shadow-lg mr-4">
-              <img src={service.icon} alt={service.title} className="w-7 h-7 md:w-8 md:h-8" />
+            <div className="flex items-center justify-center w-10 h-10 md:w-14 md:h-14 bg-gray-100 rounded-full shadow-lg mr-4">
+              <img src={service.icon} alt={service.title} className="w-6 h-6 md:w-8 md:h-8" />
             </div>
             <div className="flex flex-col">
               <h3 className="text-lg font-bold text-black dark:text-gray-100">{service.title}</h3>
