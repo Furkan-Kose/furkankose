@@ -7,6 +7,11 @@ import { useRef } from "react";
 
 const projects = [
   {
+    title: "PatiMap",
+    image: "patimap.png",
+    link: "https://patimap.netlify.app",
+  },
+  {
     title: "Range Media",
     image: "rangemedia.png",
     link: "https://rangemedia.com.tr",
@@ -15,6 +20,16 @@ const projects = [
     title: "Ritmika Cimnastik",
     image: "ritmikacimnastik.png",
     link: "https://ritmikacimnastik.com.tr",
+  },
+  {
+    title: "etadilat",
+    image: "etadilat.png",
+    link: "https://etadilat.vercel.app",
+  },
+  {
+    title: "Depon",
+    image: "depon.png",
+    link: "https://depon.vercel.app",
   },
   {
     title: "Furkan Köse",

@@ -17,7 +17,7 @@ const skills = [
   { name: "React Native", logo: "https://img.icons8.com/?size=100&id=123603&format=png&color=000000" },
   { name: "C#", logo: "https://img.icons8.com/?size=100&id=55251&format=png&color=000000" },
   { name: ".NET Core", logo: "https://img.icons8.com/?size=100&id=1BC75jFEBED6&format=png&color=000000" },
-  { name: "MS SQL", logo: "https://img.icons8.com/?size=100&id=laYYF3dV0Iew&format=png&color=000000" },
+  { name: "SQL", logo: "https://img.icons8.com/?size=100&id=J6KcaRLsTgpZ&format=png&color=000000" },
   { name: "Python", logo: "https://img.icons8.com/?size=100&id=13441&format=png&color=000000" },
   { name: "VS Code", logo: "https://img.icons8.com/?size=100&id=9OGIyU8hrxW5&format=png&color=000000" },
   { name: "Git", logo: "https://img.icons8.com/?size=100&id=20906&format=png&color=000000" },
