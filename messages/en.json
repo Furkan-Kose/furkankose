@@ -1,20 +1,30 @@
 {
+  "Meta": {
+    "title": "Furkan Köse — Full Stack Developer",
+    "description": "I build websites and mobile apps. Complete projects from the design through to everything running underneath, including booking, e-commerce and admin panel work.",
+    "jobTitle": "Full Stack Developer"
+  },
   "Hero": {
     "greeting": "I'm Furkan Köse",
-    "role": "A Full Stack Developer",
-    "passion": "Passionate About Software Development",
-    "technology": "Building with Next.js, Tailwind CSS, and More",
-    "description": "I transform ideas into reality through creativity and code.",
+    "role": "Full Stack Developer",
+    "passion": "I Build Websites and Mobile Apps",
+    "technology": "From Idea to Launch",
+    "description": "I build complete projects, from the design through to everything running underneath.",
     "projects": "Projects",
     "downloadCV": "Download CV",
-    "contact": "Contact"
+    "contact": "Contact",
+    "srHeading": "Furkan Köse — Full Stack Developer"
   },
   "Navbar": {
     "home": "Home",
     "skills": "Skills",
     "projects": "Projects",
     "services": "Services",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "switchToLight": "Switch to light theme",
+    "switchToDark": "Switch to dark theme"
   },
   "Skills": {
     "title": "My Skills",
@@ -24,45 +34,100 @@
   },
   "Projects": {
     "title": "My Projects",
-    "description": "Projects I've worked on and continue to develop.",
-    "viewLive": "View Live"
+    "description": "All of them are live. Some were built for real clients, others came out of my own curiosity.",
+    "viewLive": "Visit site",
+    "featuredLabel": "Featured",
+    "items": {
+      "rngsport": {
+        "type": "Booking & E-commerce",
+        "description": "Built for a team that shoots photo and video at rhythmic gymnastics tournaments. Athletes browse upcoming events on the tournament calendar and place a pre-booking for their shoot, which puts them on the shooting plan before the competition. Shoot packages and prints go into a cart and can be paid for on the site, while orders, galleries and memberships are handled from the panel behind it."
+      },
+      "rangemedia": {
+        "type": "Agency site",
+        "description": "A marketing site for a social media and production agency. It presents their services and past work in two languages."
+      },
+      "ritmikacup": {
+        "type": "Event site",
+        "description": "A promotion and registration site for an international gymnastics tournament. The schedule, the categories and the sign-up all sit on a single page."
+      },
+      "patimap": {
+        "type": "Graduation project",
+        "description": "My university graduation project. A platform where anyone who spots a street animal can share its photo, location and condition. Registered users can add and manage their own posts, and every shared animal appears both as a list entry and at its location on a map. Alongside the site there is a mobile app that runs off the same account."
+      },
+      "adabahce": {
+        "type": "Corporate site + panel",
+        "description": "A marketing site for a soilless farming producer. The content is kept up to date from the company's own panel."
+      },
+      "ritmikacimnastik": {
+        "type": "Club site",
+        "description": "A marketing site for a gymnastics club. It lists the programs, the coaching staff and the branches."
+      },
+      "etadilat": {
+        "type": "Services site",
+        "description": "A marketing site for a home renovation company. Every service they offer has its own detail page."
+      },
+      "depon": {
+        "type": "Corporate site",
+        "description": "A marketing site for a company working in distribution and dealerships."
+      },
+      "furkankose": {
+        "type": "Personal portfolio",
+        "description": "The site you are looking at. It gathers my projects, my skills and my contact details in one place."
+      }
+    },
+    "imageAlt": "Screenshot of the {title} homepage"
   },
   "Services": {
-    "title": "My Services",
-    "description": "Services I provide to my clients.",
+    "title": "What I Do",
+    "description": "These are the four areas I usually work in. On most projects two or three of them come together.",
     "list": [
       {
         "title": "Web Development",
-        "description": "Designing and developing advanced and user-friendly websites.",
-        "icon": "https://img.icons8.com/?size=100&id=1349&format=png&color=000000"
+        "description": "From marketing sites to ordering and booking systems. Sites that look right on a phone, load fast and can be found in search results."
       },
       {
-        "title": "Mobile App Development",
-        "description": "Developing mobile applications with user experience in mind.",
-        "icon": "https://img.icons8.com/?size=100&id=pthEjNCmyg61&format=png&color=000000"
-      },
-      {
-        "title": "Software Development",
-        "description": "Providing software solutions tailored to your needs.",
-        "icon": "https://img.icons8.com/?size=100&id=T2hlOs3PLcaY&format=png&color=000000"
+        "title": "Mobile Apps",
+        "description": "Apps that run on both Android and iOS, set up to work off the same data as the web side."
       },
       {
         "title": "Artificial Intelligence",
-        "description": "Making your projects smarter with data analysis and machine learning.",
-        "icon": "https://img.icons8.com/?size=100&id=61864&format=png&color=000000"
+        "description": "Chat assistants, content generation, or text and image analysis, fitted into a project you already have."
+      },
+      {
+        "title": "Rebuilds, Maintenance and Support",
+        "description": "Rewriting an outdated site from scratch, fixing speed and visibility problems, or adding new features to something already in production."
       }
     ]
   },
   "Contact": {
     "title": "Contact",
-    "description": "Reach out for inquiries or collaboration opportunities.",
-    "followMe": "Follow Me",
-    "followMeDescription": "Feel free to get in touch if you have any questions or collaboration opportunities! I’d be happy to assist.",
-    "sendMessage": "Send a Message",
-    "namePlaceholder": "Your Name",
-    "emailPlaceholder": "Email",
-    "messagePlaceholder": "Your Message",
-    "sendButton": "Send"
+    "description": "If you have a project in mind, or just a question, write to me below.",
+    "directTitle": "Reach me directly",
+    "directDescription": "If you would rather skip the form, you can use these instead.",
+    "emailLabel": "Email",
+    "whatsappLabel": "WhatsApp",
+    "socialLabel": "Social",
+    "formTitle": "Draft your message",
+    "formHint": "Fill in the fields and pick one of the buttons below. Your message opens ready to go in your email app or in WhatsApp, and you can still edit it before sending.",
+    "fieldName": "Name",
+    "fieldEmail": "Email",
+    "fieldTopic": "Topic",
+    "messageLabel": "Message",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "you@example.com",
+    "topicPlaceholder": "Pick a topic",
+    "messagePlaceholder": "What do you have in mind? A couple of sentences is enough.",
+    "topics": {
+      "web": "Web development",
+      "mobile": "Mobile app",
+      "ai": "Artificial intelligence",
+      "support": "Rebuild and maintenance",
+      "other": "Something else"
+    },
+    "sendMail": "Send by email",
+    "sendWhatsapp": "Send on WhatsApp",
+    "emptyHint": "Write a few lines in the message field to continue.",
+    "mailSubject": "Enquiry from the website"
   },
   "Footer": {
     "name": "Furkan Köse",

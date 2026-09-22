@@ -1,33 +1,38 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useRef } from "react";
 
-const skills = [
-  { name: "HTML", logo: "https://img.icons8.com/?size=100&id=20909&format=png&color=000000" },
-  { name: "CSS", logo: "https://img.icons8.com/?size=100&id=21278&format=png&color=000000" },
-  { name: "Tailwind CSS", logo: "https://img.icons8.com/?size=100&id=CIAZz2CYc6Kc&format=png&color=000000" },
-  { name: "JavaScript", logo: "https://img.icons8.com/?size=100&id=108784&format=png&color=000000" },
-  { name: "TypeScript", logo: "https://img.icons8.com/?size=100&id=uJM6fQYqDaZK&format=png&color=000000" },
-  { name: "React", logo: "https://img.icons8.com/?size=100&id=123603&format=png&color=000000" },
-  { name: "Next.js", logo: "https://img.icons8.com/?size=100&id=MWiBjkuHeMVq&format=png&color=000000" },
-  { name: "Node.js", logo: "https://img.icons8.com/?size=100&id=54087&format=png&color=000000" },
-  { name: "MongoDB", logo: "https://img.icons8.com/?size=100&id=74402&format=png&color=000000" },
-  { name: "React Native", logo: "https://img.icons8.com/?size=100&id=123603&format=png&color=000000" },
-  { name: "C#", logo: "https://img.icons8.com/?size=100&id=55251&format=png&color=000000" },
-  { name: ".NET Core", logo: "https://img.icons8.com/?size=100&id=1BC75jFEBED6&format=png&color=000000" },
-  { name: "SQL", logo: "https://img.icons8.com/?size=100&id=J6KcaRLsTgpZ&format=png&color=000000" },
-  { name: "Python", logo: "https://img.icons8.com/?size=100&id=13441&format=png&color=000000" },
-  { name: "VS Code", logo: "https://img.icons8.com/?size=100&id=9OGIyU8hrxW5&format=png&color=000000" },
-  { name: "Git", logo: "https://img.icons8.com/?size=100&id=20906&format=png&color=000000" },
+type Skill = { name: string; logo: string; mono?: boolean };
+
+const skills: Skill[] = [
+  { name: "HTML", logo: "/skills/html5.svg" },
+  { name: "CSS", logo: "/skills/css3.svg" },
+  { name: "Tailwind CSS", logo: "/skills/tailwindcss.svg" },
+  { name: "JavaScript", logo: "/skills/javascript.svg" },
+  { name: "TypeScript", logo: "/skills/typescript.svg" },
+  { name: "React", logo: "/skills/react.svg" },
+  // Next.js logosu tek renk; currentColor kullandığı için temaya uyum sağlıyor
+  { name: "Next.js", logo: "/skills/nextjs.svg", mono: true },
+  { name: "Node.js", logo: "/skills/nodejs.svg" },
+  { name: "MongoDB", logo: "/skills/mongodb.svg" },
+  // React Native'in ayrı bir logosu yok, React ile aynı atomu kullanıyor
+  { name: "React Native", logo: "/skills/react.svg" },
+  { name: "C#", logo: "/skills/csharp.svg" },
+  { name: ".NET Core", logo: "/skills/dotnetcore.svg" },
+  { name: "PostgreSQL", logo: "/skills/postgresql.svg" },
+  { name: "Python", logo: "/skills/python.svg" },
+  { name: "VS Code", logo: "/skills/vscode.svg" },
+  { name: "Git", logo: "/skills/git.svg" },
 ];
 
 const Skills = () => {
   const t = useTranslations("Skills");
 
   const ref = useRef(null);
-  const inView = useInView(ref, {once: true});
+  const inView = useInView(ref, { once: true });
+  const reduceMotion = useReducedMotion();
 
   return (
     <section
@@ -39,7 +44,7 @@ const Skills = () => {
         <motion.h2
           ref={ref}
           className="text-5xl font-bold text-black dark:text-white tracking-tighter"
-          initial={{ opacity: 0, y: -50 }}
+          initial={reduceMotion ? false : { opacity: 0, y: -50 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
           transition={{ duration: 1 }}
         >
@@ -47,7 +52,7 @@ const Skills = () => {
         </motion.h2>
         <motion.p
           className="text-gray-800 dark:text-gray-400 text-lg mt-4"
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
@@ -61,7 +66,7 @@ const Skills = () => {
           <motion.div
             key={index}
             className="flex flex-col items-center justify-center gap-2"
-            initial={{ opacity: 0, y: 50 }}
+            initial={reduceMotion ? false : { opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ delay: index * 0.1 }}
           >
@@ -74,11 +79,35 @@ const Skills = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-transparent via-indigo-500 to-transparent opacity-10 pointer-events-none z-10"></div>
               <div className="flex items-center justify-center h-full z-20">
-                <img
-                  src={skill.logo}
-                  alt={skill.name}
-                  className="w-10 h-10 md:w-16 md:h-16 object-contain"
-                />
+                {skill.mono ? (
+                  // Tek renk logo: maske olarak kullanıp metin rengiyle boyuyoruz,
+                  // böylece açık temada siyah, koyu temada beyaz görünüyor.
+                  <span
+                    role="img"
+                    aria-label={skill.name}
+                    className="block w-10 h-10 md:w-16 md:h-16 bg-black dark:bg-white"
+                    style={{
+                      WebkitMaskImage: `url(${skill.logo})`,
+                      maskImage: `url(${skill.logo})`,
+                      WebkitMaskRepeat: "no-repeat",
+                      maskRepeat: "no-repeat",
+                      WebkitMaskPosition: "center",
+                      maskPosition: "center",
+                      WebkitMaskSize: "contain",
+                      maskSize: "contain",
+                    }}
+                  />
+                ) : (
+                  <img
+                    src={skill.logo}
+                    alt={skill.name}
+                    width={64}
+                    height={64}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-10 h-10 md:w-16 md:h-16 object-contain"
+                  />
+                )}
               </div>
             </div>
             <p className="text-black dark:text-white mt-2">{skill.name}</p>

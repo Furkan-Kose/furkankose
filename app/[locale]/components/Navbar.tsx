@@ -1,17 +1,17 @@
 "use client";
 
-import Link from "next/link";
 import { useState, useEffect } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { Link, useRouter, usePathname } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { FiMenu, FiX, FiChevronDown } from "react-icons/fi";
 import Image from "next/image";
+import Logo from "./Logo";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [theme, setTheme] = useState("dark"); 
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
   const router = useRouter();
   const pathname = usePathname();
   const locale = useLocale();
@@ -23,17 +23,31 @@ export default function Navbar() {
       setIsScrolled(scrollY > 50);
     };
 
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.classList.toggle("dark", savedTheme === "dark");
-    } else {
-      document.documentElement.classList.add("dark");
-    }
+    // Tema zaten <head>'deki script tarafından uygulandı; burada sadece
+    // düğmenin doğru konumda görünmesi için gerçek durumu okuyoruz.
+    setTheme(document.documentElement.classList.contains("dark") ? "dark" : "light");
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Mobil menü açıkken Escape ile kapansın ve arka plan kaymasın
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isOpen]);
 
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
@@ -42,9 +56,8 @@ export default function Navbar() {
     localStorage.setItem("theme", newTheme);
   };
 
-  const changeLanguage = (lang: string) => {
-    const currentPath = pathname.replace(`/${locale}`, `/${lang}`);
-    router.push(currentPath);
+  const changeLanguage = (lang: "tr" | "en") => {
+    router.replace(pathname, { locale: lang });
     setIsDropdownOpen(false);
   };
 
@@ -57,15 +70,19 @@ export default function Navbar() {
       }`}
     >
       {/* Logo */}
-      <div className="text-2xl font-bold text-black dark:text-white">
-        <Link href="/">Furkan</Link>
-      </div>
+      <Link href="/" className="flex items-center gap-2.5">
+        <Logo className="h-9 w-9 shrink-0" />
+        <span className="text-2xl font-bold text-black dark:text-white">Furkan</span>
+      </Link>
 
       {/* Mobil Menü Butonu */}
       <div className="md:hidden flex items-center z-50">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="text-black dark:text-white focus:outline-none"
+          aria-label={isOpen ? t("closeMenu") : t("openMenu")}
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
+          className="text-black dark:text-white rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-200 dark:focus-visible:ring-offset-gray-900"
         >
           {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </button>
@@ -92,6 +109,7 @@ export default function Navbar() {
         {/* Tema Toggle Butonu */}
         <button
           onClick={toggleTheme}
+          aria-label={theme === "dark" ? t("switchToLight") : t("switchToDark")}
           className="relative w-16 h-8 bg-gray-300 dark:bg-gray-800 rounded-full p-1 flex items-center transition duration-300 ease-in-out shadow-md"
         >
           <div
@@ -99,15 +117,17 @@ export default function Navbar() {
               theme === "light" ? "translate-x-0 bg-blue-400" : "translate-x-8 bg-blue-400"
             }`}
           />
-          <span className="text-xs absolute left-2 dark:text-gray-400 text-gray-600">🌞</span>
-          <span className="text-xs absolute right-2 dark:text-gray-400 text-gray-600">🌙</span>
+          <span aria-hidden="true" className="text-xs absolute left-2 dark:text-gray-400 text-gray-600">🌞</span>
+          <span aria-hidden="true" className="text-xs absolute right-2 dark:text-gray-400 text-gray-600">🌙</span>
         </button>
 
         {/* Dil Dropdown Menüsü */}
         <div className="relative ml-4">
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="text-black dark:text-white flex items-center space-x-2 focus:outline-none shadow-md rounded-lg px-3 py-1 bg-gray-300 dark:bg-gray-800 transition duration-300 hover:bg-gray-400 dark:hover:bg-gray-700"
+            aria-expanded={isDropdownOpen}
+            aria-haspopup="menu"
+            className="text-black dark:text-white flex items-center space-x-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-200 dark:focus-visible:ring-offset-gray-900 shadow-md rounded-lg px-3 py-1 bg-gray-300 dark:bg-gray-800 transition duration-300 hover:bg-gray-400 dark:hover:bg-gray-700"
           >
             <Image src={`/${locale}.png`} width={20} height={20} alt={locale} className="rounded-full" />
             <span>{locale === 'tr' ? 'Türkçe' : 'English'}</span>
@@ -143,6 +163,7 @@ export default function Navbar() {
 
       {/* Mobil Menü */}
       <div
+        id="mobile-menu"
         className={`${
           isOpen ? "block" : "hidden"
         } fixed top-0 left-0 w-screen h-screen bg-gradient-to-br from-gray-300 to-blue-300 dark:from-gray-800 dark:to-blue-800 md:hidden transition-all duration-300 z-40`}
@@ -187,6 +208,7 @@ export default function Navbar() {
           {/* Mobil Tema Toggle Butonu */}
           <button
             onClick={toggleTheme}
+            aria-label={theme === "dark" ? t("switchToLight") : t("switchToDark")}
             className="relative w-16 h-8 bg-gray-300 dark:bg-gray-800 rounded-full p-1 flex items-center transition duration-300 ease-in-out shadow-md"
           >
             <div
@@ -194,15 +216,17 @@ export default function Navbar() {
                 theme === "light" ? "translate-x-0 bg-blue-400" : "translate-x-8 bg-blue-400"
               }`}
             />
-            <span className="text-xs absolute left-2 dark:text-gray-400 text-gray-600">🌞</span>
-            <span className="text-xs absolute right-2 dark:text-gray-400 text-gray-600">🌙</span>
+            <span aria-hidden="true" className="text-xs absolute left-2 dark:text-gray-400 text-gray-600">🌞</span>
+            <span aria-hidden="true" className="text-xs absolute right-2 dark:text-gray-400 text-gray-600">🌙</span>
           </button>
 
           {/* Mobil Dil Seçimi */}
           <div className="relative">
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className="text-black dark:text-white flex items-center space-x-2 focus:outline-none shadow-md rounded-lg px-3 py-1 bg-gray-300 dark:bg-gray-800 transition duration-300 hover:bg-gray-400 dark:hover:bg-gray-700"
+              aria-expanded={isDropdownOpen}
+              aria-haspopup="menu"
+              className="text-black dark:text-white flex items-center space-x-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-200 dark:focus-visible:ring-offset-gray-900 shadow-md rounded-lg px-3 py-1 bg-gray-300 dark:bg-gray-800 transition duration-300 hover:bg-gray-400 dark:hover:bg-gray-700"
             >
               <Image src={`/${locale}.png`} width={20} height={20} alt={locale} className="rounded-full" />
               <span>{locale === 'tr' ? 'Türkçe' : 'English'}</span>
